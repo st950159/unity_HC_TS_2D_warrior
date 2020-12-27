@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 590641972}
   - component: {fileID: 590641971}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: CarA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,6 +157,21 @@ MonoBehaviour:
   weight: 5.5
   brand: BMW
   hasWindow: 1
+  myColor: {r: 0, g: 0, b: 0, a: 0}
+  red: {r: 1, g: 0, b: 0, a: 1}
+  blue: {r: 0, g: 0, b: 1, a: 1}
+  myColor1: {r: 0, g: 0.6, b: 0.9, a: 1}
+  v2zero: {x: 0, y: 0}
+  v2one: {x: 1, y: 1}
+  v2A: {x: 9, y: 10}
+  v3A: {x: 1, y: 2, z: 3}
+  v4A: {x: 1, y: 2, z: 3, w: 4}
+  plcture: {fileID: 0}
+  sound: {fileID: 0}
+  objA: {fileID: 0}
+  objB: {fileID: 0}
+  tra: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!65 &590641972
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -328,12 +343,12 @@ GameObject:
   - component: {fileID: 1914454686}
   - component: {fileID: 1914454685}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: CarB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1914454685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,6 +365,21 @@ MonoBehaviour:
   weight: 2.5
   brand: "\u8CD3\u58EB"
   hasWindow: 0
+  myColor: {r: 0, g: 0, b: 0, a: 0}
+  red: {r: 1, g: 0, b: 0, a: 1}
+  blue: {r: 0, g: 0, b: 1, a: 1}
+  myColor1: {r: 0, g: 0.6, b: 0.9, a: 1}
+  v2zero: {x: 0, y: 0}
+  v2one: {x: 1, y: 1}
+  v2A: {x: 9, y: 10}
+  v3A: {x: 1, y: 2, z: 3}
+  v4A: {x: 1, y: 2, z: 3, w: 4}
+  plcture: {fileID: 0}
+  sound: {fileID: 0}
+  objA: {fileID: 0}
+  objB: {fileID: 0}
+  tra: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!135 &1914454686
 SphereCollider:
   m_ObjectHideFlags: 0
