@@ -15,6 +15,7 @@ public class SceneControl : MonoBehaviour
     /// </summary>
  public void StartGame()
     {
+        //音效來源.播放一次(音效.音量);
         aud.PlayOneShot(soundClick);
 
         //2.必須將場景放在 File > Build Settings...
