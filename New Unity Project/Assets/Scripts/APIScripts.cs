@@ -28,7 +28,7 @@ public class API : MonoBehaviour
 
         //時間.尺寸 = 2 倍速
 
-        Time.deltaTime = 2;
+        //Time.deltaTime = 2;
         #endregion
 
         //靜態方法
