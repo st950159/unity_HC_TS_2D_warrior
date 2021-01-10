@@ -31,7 +31,7 @@ public class NewBehaviourScript : MonoBehaviour
         print(false || true);   //T
         print(false || false);  //F
 
-
+        //相反!
         print("相反運算子" + (!true));   //F
         print("相反運算子" + (!false));  //T
 
