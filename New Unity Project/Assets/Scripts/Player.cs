@@ -70,6 +70,23 @@ public class Player : MonoBehaviour
     {
         // 剛體.加速度 = 二維(水平 * 速度,原本加速度的 Y)
         rig.velocity = new Vector2(h * speed, rig.velocity.y);
+
+        //如果 玩家 按下 D 就執行 ( 內容 )
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            //Transform 指的與此腳本是同一層的 Transform 元件
+            //Rotation 角度是程式是 localEulerAngles
+            transform.localEulerAngles = Vector3.zero;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            transform.localEulerAngles = new Vector3(0, 180, 0);
+        }
+
+
+
+
     }
 
 
