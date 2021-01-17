@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
         // 剛體欄位 = 取得元件<剛體>()
         rig = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
+        aud = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -54,6 +55,7 @@ public class Player : MonoBehaviour
         GetHorizontal();
         Move();
         Jump();
+        Fire();
     }
 
     // 在 Unity 內繪製圖示
@@ -62,6 +64,22 @@ public class Player : MonoBehaviour
         Gizmos.color = new Color(1, 0, 0, 0.6f);     // 圖示.顏色 = 顏色
         Gizmos.DrawSphere(transform.position + offset, radius);  // 圖示.繪製球體(中心點.半徑)
     }
+
+    /// <summary>
+    /// 觸發事件 : Enter 進入時執行一次
+    /// </summary>
+    /// <param name="collision">碰到物件的資訊</param>
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //如果 碰到物件的標籤 為 鑰匙
+        if (collision.tag == "鑰匙")
+        {
+            // 刪除(一定要放 GameObject)
+            Destroy(collision.gameObject);
+        }
+    }
+
+
 
     #region 方法
     /// <summary>
@@ -144,6 +162,15 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Fire()
     {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            //音效來源.播放一次音效(音效片段，音量)
+            aud.PlayOneShot(soundFire, Random.Range(1.2f, 1.5f));
+            //生成(物件)
+            GameObject temp = Instantiate(bullet, pointSpawn.position, pointSpawn.rotation);
+            //暫存子彈.取得元件<剛體>().添加推力(生成點右邊 * 子彈速度 + 生成點上方 * 高度)
+            temp.GetComponent<Rigidbody2D>().AddForce(pointSpawn.right * speedBullet + pointSpawn.up * 150);
+        }
 
     }
 
