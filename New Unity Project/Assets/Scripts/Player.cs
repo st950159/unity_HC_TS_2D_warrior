@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public Transform pointSpawn;
     [Header("子彈速度")]
     public int speedBullet = 800;
+    [Header("子彈傷害")]
+    public int damageBullet = 50;
     [Header("開槍音效")]
     public AudioClip soundFire;
     [Header("血量"), Range(0, 2000)]
@@ -170,6 +172,9 @@ public class Player : MonoBehaviour
             GameObject temp = Instantiate(bullet, pointSpawn.position, pointSpawn.rotation);
             //暫存子彈.取得元件<剛體>().添加推力(生成點右邊 * 子彈速度 + 生成點上方 * 高度)
             temp.GetComponent<Rigidbody2D>().AddForce(pointSpawn.right * speedBullet + pointSpawn.up * 150);
+            //暫存子彈.添加元件<子彈>().攻擊力 = 子彈傷害
+            temp.AddComponent<Bullet>().attack = damageBullet;
+
         }
 
     }
