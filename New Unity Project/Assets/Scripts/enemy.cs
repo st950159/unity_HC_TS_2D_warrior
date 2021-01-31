@@ -60,6 +60,10 @@ public class enemy : MonoBehaviour
         ani.SetBool("死亡", true);
         //取得元件<膠囊碰撞>().啟動 = 關閉
         GetComponent<CapsuleCollider2D>().enabled = false;
+        //剛體.睡著()
+        rig.Sleep();
+        //剛體.約束 - 約束.凍結全部
+        rig.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     /// <summary>
@@ -80,9 +84,33 @@ public class enemy : MonoBehaviour
 
         // y = x 是否大於 玩家 x ? 是 y 為 180 : 否 y 為 0
         float y = transform.position.x > player.transform.position.x ? 180 : 0;
-        transform.eulerAngles = new Vector3(0, y, 0);
+        transform.eulerAngles = new Vector3(0, y, 0);     
+        
+        //距離 = 二維.距離(A座標.B座標)
+        float dis = Vector2.Distance(transform.position, player.transform.position);
+
+        if (dis > rangeATK)
+        {
+            //剛體.移動座標(座標 + 前方 * 一禎 * 移動速度)
+            rig.MovePosition(transform.position + transform.right * Time.deltaTime * speed);
+        }
+        else
+        {
+            Attack();
+        }
+
+        //動畫.設定布林值("跑步開關",剛體.加速度.值>0)
+        ani.SetBool("跑步", rig.velocity.magnitude > 0);
     }
 
 
+    /// <summary>
+    /// 攻擊冷卻與攻擊行為
+    /// </summary>
+    private void Attack()
+    {
+        rig.velocity = Vector3.zero;
+        ani.SetTrigger("攻擊");
+    }
 
 }
