@@ -28,6 +28,10 @@ public class enemy : MonoBehaviour
     private float hpMax;
     private Player player;
 
+    private void Update()
+    {
+        Move();
+    }
     private void Start()
     {
         ani = GetComponent<Animator>();
